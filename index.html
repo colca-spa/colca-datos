@@ -108,13 +108,13 @@
       <table class="data-table" id="main-table">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Código</th>
-            <th>Nombre del Documento</th>
-            <th>Categoría</th>
-            <th>Tipo de Vigencia</th>
-            <th>Vigencia (días)</th>
-            <th># Campos</th>
+            <th data-sort="id" onclick="sortDocuments('id')" class="sortable">ID</th>
+            <th data-sort="codigo" onclick="sortDocuments('codigo')" class="sortable">Código</th>
+            <th data-sort="nombre" onclick="sortDocuments('nombre')" class="sortable">Nombre del Documento</th>
+            <th data-sort="categoria" onclick="sortDocuments('categoria')" class="sortable">Categoría</th>
+            <th data-sort="tipo_vigencia" onclick="sortDocuments('tipo_vigencia')" class="sortable">Tipo de Vigencia</th>
+            <th data-sort="vigencia_dias" onclick="sortDocuments('vigencia_dias')" class="sortable">Vigencia (días)</th>
+            <th data-sort="campos_count" onclick="sortDocuments('campos_count')" class="sortable"># Campos</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -179,6 +179,7 @@
   <div class="sidebar-overlay" id="sidebar-overlay" style="display: none;"></div>
 
   <!-- Scripts -->
+  <script src="embedded_css.js"></script>
   <script src="app.js"></script>
   <script src="sidebar.js"></script>
 </body>

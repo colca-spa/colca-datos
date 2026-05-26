@@ -1,4 +1,5 @@
-/* ============================================================================
+// Auto-generated CSS constant for embedding
+const EMBEDDED_CSS = `/* ============================================================================
    REGISTROS COLCA - Stylesheet
    Design System & Component Library
    ============================================================================ */
@@ -855,3 +856,4 @@ h3 { font-size: 16px; }
 .mt-20 { margin-top: 20px; }
 .mb-10 { margin-bottom: 10px; }
 .mb-20 { margin-bottom: 20px; }
+`;

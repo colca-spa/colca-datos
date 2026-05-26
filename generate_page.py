@@ -26,11 +26,14 @@ def parse_csv_to_relational(csv_path: pathlib.Path) -> List[Dict[str, Any]]:
     documents = []
     current_doc = None
     
-    with open(csv_path, encoding='utf-8', newline='') as f:
+    with open(csv_path, encoding='utf-8-sig', newline='') as f:
         reader = csv.DictReader(f, delimiter=';')
         
+        # Debug: print column names
+        print(f"Columnas detectadas: {reader.fieldnames}")
+        
         for row in reader:
-            has_id = row['ID'] and row['ID'].strip() != ''
+            has_id = row.get('ID', '').strip() != ''
             
             if has_id:
                 # Save previous document if exists
@@ -39,19 +42,19 @@ def parse_csv_to_relational(csv_path: pathlib.Path) -> List[Dict[str, Any]]:
                 
                 # Start new document
                 current_doc = {
-                    'id': row['ID'].strip(),
-                    'codigo': row['Código'] or '',
-                    'nombre': row['Nombre del Documento'] or '',
-                    'puede_tener_mas': row['Puede tener + de 1'] or '',
-                    'categoria': row['Categoría'] or '',
-                    'tipo_vigencia': row['Tipo de vigencia'] or '',
-                    'vigencia_dias': row['Vigencia sugerida (días)'] or '',
+                    'id': row.get('ID', '').strip(),
+                    'codigo': row.get('Código', ''),
+                    'nombre': row.get('Nombre del Documento', ''),
+                    'puede_tener_mas': row.get('Puede tener + de 1', ''),
+                    'categoria': row.get('Categoría', ''),
+                    'tipo_vigencia': row.get('Tipo de vigencia', ''),
+                    'vigencia_dias': row.get('Vigencia sugerida (días)', ''),
                     'campos': [],
-                    'comentario': row['Comentario'] or ''
+                    'comentario': row.get('Comentario', '')
                 }
             elif current_doc:
                 # This is a campo row
-                campo_nombre = row['campos documento'] or ''
+                campo_nombre = row.get('campos documento', '')
                 if campo_nombre.strip():
                     current_doc['campos'].append({
                         'nombre': campo_nombre.strip()
