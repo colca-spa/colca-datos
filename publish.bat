@@ -62,7 +62,7 @@ if %ERRORLEVEL% NEQ 0 (
 
 echo.
 echo [4/5] Agregando cambios a Git...
-git add documentos_page.html index.html
+git add Documentos.csv documentos_page.html index.html
 git status --short
 
 echo.

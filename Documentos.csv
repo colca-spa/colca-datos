@@ -1,18 +1,18 @@
-﻿ID;Código;Nombre del Documento;Puede tener + de 1;Categoría;Tipo de vigencia;Vigencia sugerida (días);campos documento;nombre campos;Comentario
-1;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad antigua;no;Documentos de Identidad;fecha_expiracion;—;;;
-;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad antigua;no;Documentos de Identidad;fecha_expiracion;—;primer apellido;;
-;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad antigua;no;Documentos de Identidad;fecha_expiracion;—;segundo apellido;;
-;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad antigua;no;Documentos de Identidad;fecha_expiracion;—;primer nombre;;
-;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad antigua;no;Documentos de Identidad;fecha_expiracion;—;segundo nombre;;
-;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad antigua;no;Documentos de Identidad;fecha_expiracion;—;nacionalidad;;
-;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad antigua;no;Documentos de Identidad;fecha_expiracion;—;sexo;;
-;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad antigua;no;Documentos de Identidad;fecha_expiracion;—;fecha de nacimiento;;
-;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad antigua;no;Documentos de Identidad;fecha_expiracion;—;numero de documento;;
-;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad antigua;no;Documentos de Identidad;fecha_expiracion;—;fecha de emision;;
-;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad antigua;no;Documentos de Identidad;fecha_expiracion;—;fecha de vencimiento;;
-;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad antigua;no;Documentos de Identidad;fecha_expiracion;—;run;;
-;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad antigua;no;Documentos de Identidad;fecha_expiracion;—;nacio_en;;
-;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad antigua;no;Documentos de Identidad;fecha_expiracion;—;profesion;;
+ID;Código;Nombre del Documento;Puede tener + de 1;Categoría;Tipo de vigencia;Vigencia sugerida (días);campos documento;nombre campos;Comentario
+1;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad Antigua;no;Documentos de Identidad;fecha_expiracion;—;;;
+;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad Antigua;no;Documentos de Identidad;fecha_expiracion;—;primer apellido;;
+;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad Antigua;no;Documentos de Identidad;fecha_expiracion;—;segundo apellido;;
+;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad Antigua;no;Documentos de Identidad;fecha_expiracion;—;primer nombre;;
+;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad Antigua;no;Documentos de Identidad;fecha_expiracion;—;segundo nombre;;
+;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad Antigua;no;Documentos de Identidad;fecha_expiracion;—;nacionalidad;;
+;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad Antigua;no;Documentos de Identidad;fecha_expiracion;—;sexo;;
+;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad Antigua;no;Documentos de Identidad;fecha_expiracion;—;fecha de nacimiento;;
+;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad Antigua;no;Documentos de Identidad;fecha_expiracion;—;numero de documento;;
+;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad Antigua;no;Documentos de Identidad;fecha_expiracion;—;fecha de emision;;
+;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad Antigua;no;Documentos de Identidad;fecha_expiracion;—;fecha de vencimiento;;
+;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad Antigua;no;Documentos de Identidad;fecha_expiracion;—;run;;
+;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad Antigua;no;Documentos de Identidad;fecha_expiracion;—;nacio_en;;
+;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad Antigua;no;Documentos de Identidad;fecha_expiracion;—;profesion;;
 2;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad nueva;no;Documentos de Identidad;fecha_expiracion;—;;;
 ;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad nueva;no;Documentos de Identidad;fecha_expiracion;—;primer apellido;;
 ;ID_CEDULA_ANTIGUA_FRENTE;cedula de identidad nueva;no;Documentos de Identidad;fecha_expiracion;—;segundo apellido;;
