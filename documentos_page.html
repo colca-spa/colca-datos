@@ -5,832 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registros COLCA - Documentos</title>
   <style>
-/* ============================================================================
-   REGISTROS COLCA - Stylesheet
-   Design System & Component Library
-   ============================================================================ */
-
-/* ============================================================================
-   CSS VARIABLES
-   ============================================================================ */
-
-:root {
-  /* Colors */
-  --primary: #0053e2;
-  --primary-hover: #003da3;
-  --secondary: #ffc220;
-  --success: #2a8703;
-  --success-hover: #1f6602;
-  --danger: #ea1100;
-  --danger-hover: #b50d00;
-  --warning: #ff9800;
-  --info: #00bcd4;
-  
-  /* Grays */
-  --gray-10: #f5f5f5;
-  --gray-20: #eeeeee;
-  --gray-50: #d0d0d0;
-  --gray-100: #9e9e9e;
-  --gray-140: #424242;
-  --gray-160: #1a1a1a;
-  
-  /* UI */
-  --border-radius: 6px;
-  --border-radius-lg: 10px;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,.10);
-  --shadow-md: 0 2px 8px rgba(0,0,0,.12);
-  --shadow-lg: 0 4px 16px rgba(0,0,0,.15);
-  
-  /* Typography */
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "Consolas", "Monaco", "Courier New", monospace;
-}
-
-/* ============================================================================
-   BASE STYLES
-   ============================================================================ */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: var(--font-family);
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--gray-160);
-  background: var(--gray-10);
-  overflow-x: hidden;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-h1 { font-size: 24px; }
-h2 { font-size: 20px; }
-h3 { font-size: 16px; }
-
-/* ============================================================================
-   HEADER
-   ============================================================================ */
-
-.header {
-  background: white;
-  border-bottom: 1px solid var(--gray-20);
-  box-shadow: var(--shadow-sm);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.header-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 16px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header h1 {
-  margin: 0;
-  color: var(--primary);
-  font-size: 20px;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* ============================================================================
-   CONTAINER
-   ============================================================================ */
-
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 24px;
-}
-
-/* ============================================================================
-   BUTTONS
-   ============================================================================ */
-
-.btn {
-  padding: 8px 16px;
-  border: none;
-  border-radius: var(--border-radius);
-  font-size: 14px;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.btn-primary {
-  background: var(--primary);
-  color: white;
-}
-
-.btn-primary:hover:not(:disabled) {
-  background: var(--primary-hover);
-}
-
-.btn-success {
-  background: var(--success);
-  color: white;
-}
-
-.btn-success:hover:not(:disabled) {
-  background: var(--success-hover);
-}
-
-.btn-danger {
-  background: var(--danger);
-  color: white;
-}
-
-.btn-danger:hover:not(:disabled) {
-  background: var(--danger-hover);
-}
-
-.btn-outline {
-  background: white;
-  color: var(--gray-140);
-  border: 1px solid var(--gray-50);
-}
-
-.btn-outline:hover:not(:disabled) {
-  background: var(--gray-10);
-  border-color: var(--gray-100);
-}
-
-.btn-sm {
-  padding: 4px 10px;
-  font-size: 12px;
-}
-
-.btn-icon {
-  padding: 6px;
-  background: transparent;
-  border: none;
-  font-size: 18px;
-  color: var(--gray-100);
-  cursor: pointer;
-  transition: color 0.15s;
-}
-
-.btn-icon:hover {
-  color: var(--gray-160);
-}
-
-/* ============================================================================
-   TOOLBAR
-   ============================================================================ */
-
-.toolbar {
-  background: white;
-  border-radius: var(--border-radius-lg);
-  padding: 16px 20px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: var(--shadow-sm);
-}
-
-.toolbar-left, .toolbar-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* ============================================================================
-   FILTERS PANEL
-   ============================================================================ */
-
-.filters-panel {
-  background: white;
-  border-radius: var(--border-radius-lg);
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: flex-end;
-}
-
-.filter-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-width: 180px;
-}
-
-.filter-group label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--gray-140);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* ============================================================================
-   INPUTS
-   ============================================================================ */
-
-.input-text {
-  padding: 8px 12px;
-  border: 1px solid var(--gray-50);
-  border-radius: var(--border-radius);
-  font-size: 14px;
-  font-family: inherit;
-  transition: border-color 0.15s;
-  width: 100%;
-}
-
-.input-text:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-
-.input-text:disabled {
-  background: var(--gray-10);
-  cursor: not-allowed;
-}
-
-.input-text-inline {
-  padding: 4px 8px;
-  border: 1px solid var(--gray-50);
-  border-radius: var(--border-radius);
-  font-size: 13px;
-  font-family: inherit;
-  width: 100%;
-}
-
-.input-text-inline:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-
-.input-textarea {
-  padding: 10px 12px;
-  border: 1px solid var(--gray-50);
-  border-radius: var(--border-radius);
-  font-size: 14px;
-  font-family: inherit;
-  resize: vertical;
-  width: 100%;
-}
-
-.input-textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-
-.input-select {
-  padding: 8px 12px;
-  border: 1px solid var(--gray-50);
-  border-radius: var(--border-radius);
-  font-size: 14px;
-  font-family: inherit;
-  background: white;
-  cursor: pointer;
-  width: 100%;
-}
-
-.input-select:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-
-.select-sm {
-  padding: 4px 8px;
-  font-size: 12px;
-}
-
-.input-group {
-  display: flex;
-  gap: 8px;
-}
-
-/* ============================================================================
-   MULTI-SELECT DROPDOWN
-   ============================================================================ */
-
-.multi-select {
-  position: relative;
-  min-width: 180px;
-}
-
-.ms-trigger {
-  padding: 8px 12px;
-  border: 1px solid var(--gray-50);
-  border-radius: var(--border-radius);
-  background: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  transition: border-color 0.15s;
-}
-
-.ms-trigger:hover {
-  border-color: var(--gray-100);
-}
-
-.ms-text {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 14px;
-}
-
-.ms-arrow {
-  color: var(--gray-100);
-  font-size: 10px;
-}
-
-.ms-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  margin-top: 4px;
-  background: white;
-  border: 1px solid var(--gray-50);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-md);
-  z-index: 1000;
-  max-height: 250px;
-  overflow-y: auto;
-}
-
-.ms-options {
-  padding: 6px;
-}
-
-.ms-option {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: background 0.15s;
-}
-
-.ms-option:hover {
-  background: var(--gray-10);
-}
-
-.ms-option input[type="checkbox"] {
-  cursor: pointer;
-}
-
-/* ============================================================================
-   TABLE
-   ============================================================================ */
-
-.table-container {
-  background: white;
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.data-table thead {
-  background: var(--gray-10);
-  border-bottom: 2px solid var(--gray-50);
-}
-
-.data-table th {
-  padding: 12px 16px;
-  text-align: left;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--gray-140);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.data-table td {
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--gray-20);
-  font-size: 14px;
-}
-
-.data-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.table-row-clickable {
-  cursor: pointer;
-  transition: background 0.15s;
-}
-
-.table-row-clickable:hover {
-  background: var(--gray-10);
-}
-
-.empty-state {
-  text-align: center;
-  padding: 60px 20px !important;
-  color: var(--gray-100);
-  font-size: 14px;
-}
-
-.empty-state-small {
-  text-align: center;
-  padding: 20px !important;
-  color: var(--gray-100);
-  font-size: 13px;
-}
-
-/* ============================================================================
-   BADGES
-   ============================================================================ */
-
-.badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  white-space: nowrap;
-}
-
-.badge-category {
-  background: #e3eeff;
-  color: #0040b0;
-}
-
-.badge-vigencia-fecha_expiracion {
-  background: #fff3e0;
-  color: #e65100;
-}
-
-.badge-vigencia-sin_vigencia {
-  background: #e8f5e9;
-  color: #1b5e20;
-}
-
-.badge-vigencia-periodo_desde_emision {
-  background: #e1f5fe;
-  color: #01579b;
-}
-
-.badge-neutral {
-  background: var(--gray-20);
-  color: var(--gray-140);
-}
-
-.badge-warning {
-  background: var(--warning);
-  color: white;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-.code-badge {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  background: var(--gray-10);
-  padding: 2px 6px;
-  border-radius: 3px;
-  color: var(--gray-140);
-}
-
-/* ============================================================================
-   PAGINATION
-   ============================================================================ */
-
-.pagination-bar {
-  background: white;
-  border-radius: var(--border-radius-lg);
-  padding: 16px 20px;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.pagination-info {
-  font-size: 14px;
-  color: var(--gray-100);
-}
-
-.pagination-controls {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.pagination-controls label {
-  font-size: 12px;
-  color: var(--gray-140);
-}
-
-.pagination-buttons {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-#page-indicator {
-  font-size: 13px;
-  color: var(--gray-140);
-  font-weight: 500;
-}
-
-/* ============================================================================
-   SIDEBAR
-   ============================================================================ */
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 500px;
-  height: 100vh;
-  background: white;
-  box-shadow: var(--shadow-lg);
-  z-index: 1001;
-  display: none;
-  flex-direction: column;
-  animation: slideIn 0.25s ease-out;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-.sidebar-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1000;
-  display: none;
-  animation: fadeIn 0.25s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.sidebar-header {
-  padding: 20px 24px;
-  border-bottom: 1px solid var(--gray-20);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.sidebar-header h2 {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--gray-160);
-  margin: 0;
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.sidebar-tabs {
-  display: flex;
-  border-bottom: 1px solid var(--gray-20);
-  background: var(--gray-10);
-}
-
-.tab-btn {
-  flex: 1;
-  padding: 12px 16px;
-  border: none;
-  background: transparent;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--gray-100);
-  cursor: pointer;
-  transition: all 0.15s;
-  border-bottom: 2px solid transparent;
-}
-
-.tab-btn:hover {
-  color: var(--gray-160);
-  background: white;
-}
-
-.tab-btn.active {
-  color: var(--primary);
-  background: white;
-  border-bottom-color: var(--primary);
-}
-
-.sidebar-body {
-  flex: 1;
-  overflow-y: auto;
-  padding: 24px;
-}
-
-.sidebar-footer {
-  padding: 16px 24px;
-  border-top: 1px solid var(--gray-20);
-  display: flex;
-  gap: 10px;
-}
-
-/* ============================================================================
-   FORM COMPONENTS
-   ============================================================================ */
-
-.form-section {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.form-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--gray-140);
-}
-
-.form-hint {
-  font-size: 12px;
-  color: var(--gray-100);
-  font-style: italic;
-}
-
-/* ============================================================================
-   INFO BOX
-   ============================================================================ */
-
-.info-box {
-  padding: 16px;
-  border-radius: var(--border-radius);
-  border-left: 4px solid;
-  background: var(--gray-10);
-  margin-top: 10px;
-}
-
-.info-box-blue {
-  border-left-color: var(--info);
-  background: #e1f5fe;
-}
-
-.info-box-gray {
-  border-left-color: var(--gray-100);
-  background: var(--gray-10);
-}
-
-.info-box-title {
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--gray-160);
-}
-
-.info-box p {
-  font-size: 13px;
-  color: var(--gray-140);
-  margin: 6px 0;
-}
-
-.info-list {
-  margin: 8px 0;
-  padding-left: 20px;
-}
-
-.info-list li {
-  font-size: 13px;
-  color: var(--gray-140);
-  margin: 4px 0;
-}
-
-/* ============================================================================
-   MINI TABLE (for nested data)
-   ============================================================================ */
-
-.mini-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid var(--gray-50);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-}
-
-.mini-table thead {
-  background: var(--gray-10);
-}
-
-.mini-table th {
-  padding: 10px 12px;
-  text-align: left;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--gray-140);
-  border-bottom: 1px solid var(--gray-50);
-}
-
-.mini-table td {
-  padding: 10px 12px;
-  font-size: 13px;
-  border-bottom: 1px solid var(--gray-20);
-}
-
-.mini-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-/* ============================================================================
-   RESPONSIVE
-   ============================================================================ */
-
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-  }
-  
-  .filters-panel {
-    flex-direction: column;
-  }
-  
-  .filter-group {
-    width: 100%;
-  }
-  
-  .toolbar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .toolbar-left, .toolbar-right {
-    flex-direction: column;
-  }
-  
-  .pagination-bar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-
-/* ============================================================================
-   UTILITIES
-   ============================================================================ */
-
-.text-center { text-align: center; }
-.text-right { text-align: right; }
-.mt-10 { margin-top: 10px; }
-.mt-20 { margin-top: 20px; }
-.mb-10 { margin-bottom: 10px; }
-.mb-20 { margin-bottom: 20px; }
 
   </style>
 </head>
@@ -850,7 +24,7 @@ h3 { font-size: 16px; }
     <!-- Toolbar -->
     <div class="toolbar">
       <div class="toolbar-left">
-        <strong>Base de Datos de Documentos</strong>
+        <strong>Base de Datos de Documentos (Solo Lectura)</strong>
       </div>
       <div class="toolbar-right">
         <span id="stats-summary"></span>
@@ -866,28 +40,16 @@ h3 { font-size: 16px; }
 
       <div class="filter-group">
         <label>Categoría</label>
-        <div class="multi-select" id="ms-categoria">
-          <div class="ms-trigger">
-            <span class="ms-text">Todas</span>
-            <span class="ms-arrow">▼</span>
-          </div>
-          <div class="ms-dropdown" style="display:none">
-            <div class="ms-options" id="ms-categoria-opts"></div>
-          </div>
-        </div>
+        <select id="filter-categoria" class="input-select">
+          <option value="">Todas</option>
+        </select>
       </div>
 
       <div class="filter-group">
         <label>Tipo de Vigencia</label>
-        <div class="multi-select" id="ms-vigencia">
-          <div class="ms-trigger">
-            <span class="ms-text">Todos</span>
-            <span class="ms-arrow">▼</span>
-          </div>
-          <div class="ms-dropdown" style="display:none">
-            <div class="ms-options" id="ms-vigencia-opts"></div>
-          </div>
-        </div>
+        <select id="filter-vigencia" class="input-select">
+          <option value="">Todos</option>
+        </select>
       </div>
 
       <div class="filter-group">
@@ -901,7 +63,6 @@ h3 { font-size: 16px; }
         <thead>
           <tr>
             <th>ID</th>
-            <th>Código</th>
             <th>Nombre del Documento</th>
             <th>Categoría</th>
             <th>Tipo de Vigencia</th>
@@ -952,13 +113,11 @@ h3 { font-size: 16px; }
     <div class="sidebar-body" id="sidebar-body"></div>
   </div>
 
-  <!-- Overlay -->
+  <!-- Overlay for sidebar -->
   <div class="sidebar-overlay" id="sidebar-overlay" style="display: none;"></div>
 
   <script>
-    // ========================================================================
-    // EMBEDDED DATA
-    // ========================================================================
+    // Embedded data
     const DOCUMENTS = [
   {
     "id": "1",
@@ -969,6 +128,9 @@ h3 { font-size: 16px; }
     "tipo_vigencia": "fecha_expiracion",
     "vigencia_dias": "—",
     "campos": [
+      {
+        "nombre": "primer apellido"
+      },
       {
         "nombre": "segundo apellido"
       },
@@ -1009,7 +171,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "1",
+    "id": "2",
     "codigo": "ID_CEDULA_ANTIGUA_FRENTE",
     "nombre": "cedula de identidad nueva",
     "puede_tener_mas": "no",
@@ -1017,6 +179,9 @@ h3 { font-size: 16px; }
     "tipo_vigencia": "fecha_expiracion",
     "vigencia_dias": "—",
     "campos": [
+      {
+        "nombre": "primer apellido"
+      },
       {
         "nombre": "segundo apellido"
       },
@@ -1054,7 +219,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "2",
+    "id": "3",
     "codigo": "ID_PASAPORTE",
     "nombre": "Pasaporte",
     "puede_tener_mas": "no",
@@ -1109,7 +274,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "1",
+    "id": "8",
     "codigo": "CERT_EST_MEDIOS",
     "nombre": "Certificado estudios enseñanza media",
     "puede_tener_mas": "no",
@@ -1120,7 +285,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "2",
+    "id": "9",
     "codigo": "CERT_TITULO_TEC",
     "nombre": "Certificado título técnico nivel superior",
     "puede_tener_mas": "no",
@@ -1131,7 +296,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "3",
+    "id": "10",
     "codigo": "CERT_TITULO_SUP",
     "nombre": "Certificado título profesional/universitario",
     "puede_tener_mas": "no",
@@ -1142,7 +307,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "4",
+    "id": "11",
     "codigo": "CERT_POSTGRADO_DIPLOMADO",
     "nombre": "Diplomado de especialización",
     "puede_tener_mas": "si",
@@ -1153,7 +318,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "5",
+    "id": "12",
     "codigo": "CERT_POSTGRADO_MAGISTER",
     "nombre": "Grado académico magíster",
     "puede_tener_mas": "si",
@@ -1164,7 +329,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "6",
+    "id": "13",
     "codigo": "CERT_POSTGRADO_DOCTORADO",
     "nombre": "Grado académico doctorado",
     "puede_tener_mas": "si",
@@ -1175,88 +340,18 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "7",
+    "id": "14",
     "codigo": "CERT_PROFESIONAL_ESPECIALIZADA",
     "nombre": "Certificación profesional especializada",
     "puede_tener_mas": "si",
     "categoria": "Formación y Títulos",
     "tipo_vigencia": "periodo_desde_emision",
     "vigencia_dias": "1095",
-    "campos": [
-      {
-        "nombre": "clase"
-      },
-      {
-        "nombre": "numero de licencia"
-      },
-      {
-        "nombre": "municipalidad"
-      },
-      {
-        "nombre": "primer nombre"
-      },
-      {
-        "nombre": "segundo nombre"
-      },
-      {
-        "nombre": "primer apellido"
-      },
-      {
-        "nombre": "segundo apellido"
-      },
-      {
-        "nombre": "direccion"
-      },
-      {
-        "nombre": "fecha ultimo control"
-      },
-      {
-        "nombre": "fecha de control"
-      },
-      {
-        "nombre": "restricciones"
-      },
-      {
-        "nombre": "primer otorgamiento"
-      },
-      {
-        "nombre": "run"
-      },
-      {
-        "nombre": "primer apellido"
-      },
-      {
-        "nombre": "segundo apellido"
-      },
-      {
-        "nombre": "primer nombre"
-      },
-      {
-        "nombre": "segundo nombre"
-      },
-      {
-        "nombre": "direccion"
-      },
-      {
-        "nombre": "restricciones"
-      },
-      {
-        "nombre": "clase"
-      },
-      {
-        "nombre": "primer otorgamiento"
-      },
-      {
-        "nombre": "actual otorgamiento"
-      },
-      {
-        "nombre": "proximo control"
-      }
-    ],
+    "campos": [],
     "comentario": ""
   },
   {
-    "id": "11",
+    "id": "15",
     "codigo": "LIC_INTERNA_FAENA",
     "nombre": "Licencia interna faena/mandante",
     "puede_tener_mas": "no",
@@ -1267,7 +362,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "1",
+    "id": "16",
     "codigo": "ANT_PENALES",
     "nombre": "Certificado antecedentes penales",
     "puede_tener_mas": "no",
@@ -1278,7 +373,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "2",
+    "id": "17",
     "codigo": "ANT_FINES_ESP",
     "nombre": "Certificado antecedentes fines especiales",
     "puede_tener_mas": "no",
@@ -1289,7 +384,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "3",
+    "id": "18",
     "codigo": "ANT_LABORALES",
     "nombre": "Certificado antecedentes laborales",
     "puede_tener_mas": "no",
@@ -1300,7 +395,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "4",
+    "id": "19",
     "codigo": "ANT_INHABILIDADES",
     "nombre": "Certificado inhabilidades con menores",
     "puede_tener_mas": "no",
@@ -1311,7 +406,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "5",
+    "id": "20",
     "codigo": "ANT_OTRO_CERT",
     "nombre": "Otros certificados antecedentes",
     "puede_tener_mas": "no",
@@ -1322,7 +417,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "6",
+    "id": "21",
     "codigo": "ANT_HOJA_VIDA_COND",
     "nombre": "Hoja vida conductor",
     "puede_tener_mas": "no",
@@ -1333,7 +428,7 @@ h3 { font-size: 16px; }
     "comentario": ""
   },
   {
-    "id": "7",
+    "id": "22",
     "codigo": "ANT_ANTEC_TRANSITO",
     "nombre": "Certificado antecedentes tránsito",
     "puede_tener_mas": "no",
@@ -1342,253 +437,1124 @@ h3 { font-size: 16px; }
     "vigencia_dias": "365",
     "campos": [],
     "comentario": ""
+  },
+  {
+    "id": "23",
+    "codigo": "LIC_CONDUCIR_A1",
+    "nombre": "Licencia conducir clase A1",
+    "puede_tener_mas": "no",
+    "categoria": "Licencias de Conducir y Habilitaciones",
+    "tipo_vigencia": "fecha_expiracion",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "24",
+    "codigo": "LIC_CONDUCIR_A2",
+    "nombre": "Licencia conducir clase A2 (con restricciones)",
+    "puede_tener_mas": "no",
+    "categoria": "Licencias de Conducir y Habilitaciones",
+    "tipo_vigencia": "fecha_expiracion",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "25",
+    "codigo": "LIC_CONDUCIR_A3",
+    "nombre": "Licencia conducir clase A3",
+    "puede_tener_mas": "no",
+    "categoria": "Licencias de Conducir y Habilitaciones",
+    "tipo_vigencia": "fecha_expiracion",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "26",
+    "codigo": "LIC_CONDUCIR_A4",
+    "nombre": "Licencia conducir clase A4 (con restricciones única)",
+    "puede_tener_mas": "no",
+    "categoria": "Licencias de Conducir y Habilitaciones",
+    "tipo_vigencia": "fecha_expiracion",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "27",
+    "codigo": "LIC_CONDUCIR_A5",
+    "nombre": "Licencia conducir clase A5",
+    "puede_tener_mas": "no",
+    "categoria": "Licencias de Conducir y Habilitaciones",
+    "tipo_vigencia": "fecha_expiracion",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "28",
+    "codigo": "LIC_CONDUCIR_B",
+    "nombre": "Licencia conducir clase B",
+    "puede_tener_mas": "no",
+    "categoria": "Licencias de Conducir y Habilitaciones",
+    "tipo_vigencia": "fecha_expiracion",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "29",
+    "codigo": "LIC_CONDUCIR_C",
+    "nombre": "Licencia conducir clase C",
+    "puede_tener_mas": "no",
+    "categoria": "Licencias de Conducir y Habilitaciones",
+    "tipo_vigencia": "fecha_expiracion",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "30",
+    "codigo": "LIC_CONDUCIR_D",
+    "nombre": "Licencia conducir clase D",
+    "puede_tener_mas": "no",
+    "categoria": "Licencias de Conducir y Habilitaciones",
+    "tipo_vigencia": "fecha_expiracion",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "31",
+    "codigo": "LIC_CONDUCIR_E",
+    "nombre": "Licencia conducir clase E",
+    "puede_tener_mas": "no",
+    "categoria": "Licencias de Conducir y Habilitaciones",
+    "tipo_vigencia": "fecha_expiracion",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "32",
+    "codigo": "LIC_MAQUINARIA",
+    "nombre": "Licencia para maquinaria",
+    "puede_tener_mas": "si",
+    "categoria": "Licencias de Conducir y Habilitaciones",
+    "tipo_vigencia": "fecha_expiracion",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "33",
+    "codigo": "EXAM_PREOC",
+    "nombre": "Examen preocupacional periódico",
+    "puede_tener_mas": "no",
+    "categoria": "Exámenes Médicos y Aptitud Ocupacional",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "34",
+    "codigo": "EXAM_POSOP_ANUAL",
+    "nombre": "Examen posocupacional periódico",
+    "puede_tener_mas": "no",
+    "categoria": "Exámenes Médicos y Aptitud Ocupacional",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "35",
+    "codigo": "EXAM_ALTURA_FISICA",
+    "nombre": "Examen trabajo en altura física",
+    "puede_tener_mas": "no",
+    "categoria": "Exámenes Médicos y Aptitud Ocupacional",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "36",
+    "codigo": "EXAM_ALTURA_VISION",
+    "nombre": "Examen trabajo en altura geográfica",
+    "puede_tener_mas": "no",
+    "categoria": "Exámenes Médicos y Aptitud Ocupacional",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "37",
+    "codigo": "EXAM_PSICO_MINERIA",
+    "nombre": "Examen psicoemocional",
+    "puede_tener_mas": "no",
+    "categoria": "Exámenes Médicos y Aptitud Ocupacional",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "38",
+    "codigo": "EXAM_PSICOTECH",
+    "nombre": "Examen psicotecnico",
+    "puede_tener_mas": "no",
+    "categoria": "Exámenes Médicos y Aptitud Ocupacional",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "39",
+    "codigo": "EXAM_ALCOHOL_DROGAS",
+    "nombre": "Examen alcohol y drogas",
+    "puede_tener_mas": "no",
+    "categoria": "Exámenes Médicos y Aptitud Ocupacional",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "40",
+    "codigo": "EXAM_BATERIA_OCUPACIONAL",
+    "nombre": "Batería ocupacional metalúrgica",
+    "puede_tener_mas": "no",
+    "categoria": "Exámenes Médicos y Aptitud Ocupacional",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "41",
+    "codigo": "EXAM_AVIACION_RIESGO",
+    "nombre": "Examen aviación de riesgo",
+    "puede_tener_mas": "no",
+    "categoria": "Exámenes Médicos y Aptitud Ocupacional",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "42",
+    "codigo": "EXAM_VISION",
+    "nombre": "Examen de visión",
+    "puede_tener_mas": "no",
+    "categoria": "Exámenes Médicos y Aptitud Ocupacional",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "43",
+    "codigo": "EXAM_AUDIOMETRIA",
+    "nombre": "Examen audiometría",
+    "puede_tener_mas": "no",
+    "categoria": "Exámenes Médicos y Aptitud Ocupacional",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "44",
+    "codigo": "EXAM_OHNO_OCUPACIO",
+    "nombre": "Examen oftalmológico",
+    "puede_tener_mas": "no",
+    "categoria": "Exámenes Médicos y Aptitud Ocupacional",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "45",
+    "codigo": "CERT_TRABAJO_ALTURA",
+    "nombre": "Certificado trabajo en altura",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "46",
+    "codigo": "CERT_ESPACIOS_CONF",
+    "nombre": "Certificado espacios confinados",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "47",
+    "codigo": "CERT_PRIM_AUXILIOS",
+    "nombre": "Certificado primeros auxilios",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "730",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "48",
+    "codigo": "CERT_RCP",
+    "nombre": "Certificado RCP",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "49",
+    "codigo": "CERT_EXTINCION_INCEND",
+    "nombre": "Certificado extinción incendio",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "50",
+    "codigo": "CERT_MANEJO_DEFENSIVO",
+    "nombre": "Curso manejo defensivo",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "51",
+    "codigo": "CERT_MANEJO_DEF_SIM",
+    "nombre": "Curso manejo defensivo simulador",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "52",
+    "codigo": "CERT_ISAM_RIESGO",
+    "nombre": "Certificado ISAM",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "53",
+    "codigo": "CERT_MATERIALES_PELIG",
+    "nombre": "Certificado materiales peligrosos",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "54",
+    "codigo": "CERT_COMP_OTEC",
+    "nombre": "Certificado competencias OTEC",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "55",
+    "codigo": "CERT_EXAMENES_PRACT",
+    "nombre": "Certificado exámenes prácticos",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "56",
+    "codigo": "CERT_ANDAMIOS",
+    "nombre": "Certificado montaje andamios",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "57",
+    "codigo": "CERT_SISTEMAS_IZAJE",
+    "nombre": "Certificado sistemas izaje",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "58",
+    "codigo": "CERT_RIGGER",
+    "nombre": "Certificado señalero",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "59",
+    "codigo": "CERT_MANEJO_GPS",
+    "nombre": "Certificado manejo GPS",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "60",
+    "codigo": "CERT_CARGA_PELIGROSA",
+    "nombre": "Certificado carga peligrosa",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "61",
+    "codigo": "CERT_NACOGAMAT",
+    "nombre": "Certificado NACOGAMAT",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "62",
+    "codigo": "CERT_FATIGA",
+    "nombre": "Certificado fatiga",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "63",
+    "codigo": "CERT_GRUA_VIAJANTE",
+    "nombre": "Certificado Grúa Viajante (Puente Grúa)",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "730",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "64",
+    "codigo": "CERT_GUARDIA_ARMADO",
+    "nombre": "Certificado Guardia Armado",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "65",
+    "codigo": "CERT_MANEJO_RESIDUOS",
+    "nombre": "Certificado Manejo de Residuos Peligrosos y No Peligrosos",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "66",
+    "codigo": "CERT_CONTROL_ACCESO",
+    "nombre": "Certificado Control de Acceso a Faena",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "730",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "67",
+    "codigo": "CERT_TRANSENTE_CUSTOM",
+    "nombre": "Certificado Transeúnte Customizado",
+    "puede_tener_mas": "no",
+    "categoria": "Certificaciones y Cursos HEC / Técnicas",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "68",
+    "codigo": "LAB_CONTRATO",
+    "nombre": "Contrato de trabajo",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_activo",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "69",
+    "codigo": "LAB_ANEXO_MODIF_CONTRATO",
+    "nombre": "Anexo modificación contrato de trabajo",
+    "puede_tener_mas": "si",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_activo",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "70",
+    "codigo": "LAB_ANEXO_MODIF_FAENA",
+    "nombre": "Anexo modificación faena",
+    "puede_tener_mas": "si",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_activo",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "71",
+    "codigo": "LAB_ANEXO_CONVERSION_C",
+    "nombre": "Anexo conversión contrato",
+    "puede_tener_mas": "si",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_activo",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "72",
+    "codigo": "LAB_FINIQUITO",
+    "nombre": "Finiquito",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "73",
+    "codigo": "LAB_PRINCIPIO_ADT",
+    "nombre": "Finiquito Salario con CCO",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "74",
+    "codigo": "LAB_PRINCIPIO_PAGADOR",
+    "nombre": "Finiquito principio pagador",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "75",
+    "codigo": "LAB_CERT_EXPERIENCIA",
+    "nombre": "Certificado experiencia laboral",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "76",
+    "codigo": "LAB_LIK_CIS",
+    "nombre": "Liquidación sueldo",
+    "puede_tener_mas": "si",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "77",
+    "codigo": "LAB_LIK_INTERN",
+    "nombre": "Liquidación compensaciones",
+    "puede_tener_mas": "si",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "78",
+    "codigo": "LAB_CERT_RENTA",
+    "nombre": "Certificado de renta",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "30",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "79",
+    "codigo": "LAB_CERT_SALUD",
+    "nombre": "Certificado cotizaciones salud",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "30",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "80",
+    "codigo": "LAB_CERT_AFP",
+    "nombre": "Certificado cotizaciones AFP",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "30",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "81",
+    "codigo": "LAB_PREVIRED",
+    "nombre": "Comprobante pago Previred",
+    "puede_tener_mas": "si",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "30",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "82",
+    "codigo": "LAB_DECL_SUBALTER",
+    "nombre": "Declaración contrato subalterno",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "83",
+    "codigo": "LAB_ACUERDO_NEGOCIA",
+    "nombre": "Acuerdo negociación",
+    "puede_tener_mas": "si",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_activo",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "84",
+    "codigo": "LAB_CONSENT_DATOS",
+    "nombre": "Consentimiento tratamiento datos personales",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "85",
+    "codigo": "LAB_RIESG_ACCI_POL_SEG",
+    "nombre": "Riesgos accidente póliza seguros y responsabilidad civil",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_activo",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "86",
+    "codigo": "LAB_ANEXO_JORNADA_EXCEP",
+    "nombre": "Anexo Jornada Excepcional",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_activo",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "87",
+    "codigo": "LAB_DECL_SOC_PAREJA",
+    "nombre": "Declaración socio/pareja Transelec",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "88",
+    "codigo": "LAB_REG_INDIC_CLIENTE",
+    "nombre": "Registro Inducción cliente/faena al trabajador",
+    "puede_tener_mas": "si",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "89",
+    "codigo": "LAB_REG_DUL_CCO",
+    "nombre": "Registro DUL-CCO",
+    "puede_tener_mas": "si",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "730",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "90",
+    "codigo": "LAB_REG_RI_MANDANTE",
+    "nombre": "Registro RI mastercertización",
+    "puede_tener_mas": "si",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "91",
+    "codigo": "LAB_VIGENCIA_CUENTA",
+    "nombre": "Vigencia cuenta bancaria",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "1825",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "92",
+    "codigo": "LAB_LICENCIA_MEDICA",
+    "nombre": "Licencia médica trabajador",
+    "puede_tener_mas": "si",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "1825",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "93",
+    "codigo": "LAB_RENUNCIA",
+    "nombre": "Carta de renuncia",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "94",
+    "codigo": "LAB_EVAL_DESEMP_ANUAL",
+    "nombre": "Evaluación desempeño anual",
+    "puede_tener_mas": "si",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "95",
+    "codigo": "LAB_FORM_ENVIO_CCO",
+    "nombre": "Formulario envio CCO",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "96",
+    "codigo": "LAB_REGL_MANDANTE",
+    "nombre": "Reglamento interno Reglamento interno MANDANTE",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "97",
+    "codigo": "LAB_EPP_RECIBIDO",
+    "nombre": "Registro entrega EPP",
+    "puede_tener_mas": "si",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "730",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "98",
+    "codigo": "LAB_RECEP_NOTIFICACION_INDEL",
+    "nombre": "Recepción notificación INDEL trabajador art EPP y otros implementos",
+    "puede_tener_mas": "si",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "99",
+    "codigo": "LAB_FICHA_PERSONAL",
+    "nombre": "Ficha personal",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "100",
+    "codigo": "LAB_FORM_EXTRALABORAL",
+    "nombre": "Formulario Encuesta de Riesgo Factores Psicosociales Laborales y Extralaborales",
+    "puede_tener_mas": "no",
+    "categoria": "Documentos Laborales",
+    "tipo_vigencia": "periodo_desde_emision",
+    "vigencia_dias": "730",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "101",
+    "codigo": "IND_REG_ATENCILES",
+    "nombre": "Certificado presenciales Atención Cliente",
+    "puede_tener_mas": "si",
+    "categoria": "Inducciones",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "135",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "102",
+    "codigo": "IND_SENALIZACIONES",
+    "nombre": "Certificado Señalizaciones",
+    "puede_tener_mas": "no",
+    "categoria": "Inducciones",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "103",
+    "codigo": "ARR_VIVA_VIDA_COND",
+    "nombre": "Pago mes conductor",
+    "puede_tener_mas": "si",
+    "categoria": "Arrendamientos (vehículos, terrenos, equipos)",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "365",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "104",
+    "codigo": "ARR_PADRUNG_VEHICULO",
+    "nombre": "Padrung de vehículo",
+    "puede_tener_mas": "no",
+    "categoria": "Arrendamientos (vehículos, terrenos, equipos)",
+    "tipo_vigencia": "periodo_activo",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "105",
+    "codigo": "ARR_CONTRATO_VIVIENDA",
+    "nombre": "Contrato vivienda arrendamiento",
+    "puede_tener_mas": "no",
+    "categoria": "Arrendamientos (vehículos, terrenos, equipos)",
+    "tipo_vigencia": "periodo_activo",
+    "vigencia_dias": "—",
+    "campos": [],
+    "comentario": ""
+  },
+  {
+    "id": "106",
+    "codigo": "ARR_OTROS_CERT",
+    "nombre": "Otros arrendamientos o independiente",
+    "puede_tener_mas": "si",
+    "categoria": "Arrendamientos (vehículos, terrenos, equipos)",
+    "tipo_vigencia": "sin_vigencia",
+    "vigencia_dias": "135",
+    "campos": [],
+    "comentario": ""
   }
 ];
-
-    // ========================================================================
-    // STATE
-    // ========================================================================
+    
+    // Read-only state
     const STATE = {
       documents: DOCUMENTS,
-      filteredDocuments: DOCUMENTS,
-      filterState: {
-        search: '',
-        categoria: [],
-        tipo_vigencia: []
-      },
+      filteredDocuments: [],
       currentPage: 1,
       rowsPerPage: 20,
+      filterSearch: '',
+      filterCategoria: '',
+      filterVigencia: '',
       selectedDocumentId: null
     };
-
-    // ========================================================================
-    // HELPERS
-    // ========================================================================
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
+    
+    // Initialize
+    function init() {
+      STATE.filteredDocuments = STATE.documents;
+      buildFilterOptions();
+      applyFilters();
+      attachEventListeners();
     }
-
-    // ========================================================================
-    // FILTERS
-    // ========================================================================
-    function buildMultiSelectOptions(containerId, fieldName) {
-      const uniqueValues = [...new Set(
-        STATE.documents.map(doc => doc[fieldName]).filter(v => v && v.trim() !== '')
-      )].sort();
+    
+    // Build filter options
+    function buildFilterOptions() {
+      const categorias = [...new Set(STATE.documents.map(d => d.categoria).filter(c => c))].sort();
+      const vigencias = [...new Set(STATE.documents.map(d => d.tipo_vigencia).filter(v => v))].sort();
       
-      const container = document.getElementById(containerId + '-opts');
-      container.innerHTML = uniqueValues.map(value => `
-        <label class="ms-option">
-          <input type="checkbox" value="${escapeHtml(value)}" 
-                 onchange="onFilterChange('${fieldName}', this)">
-          <span>${escapeHtml(value)}</span>
-        </label>
-      `).join('');
-    }
-
-    function onFilterChange(fieldName, checkbox) {
-      const value = checkbox.value;
-      
-      if (checkbox.checked) {
-        if (!STATE.filterState[fieldName].includes(value)) {
-          STATE.filterState[fieldName].push(value);
-        }
-      } else {
-        STATE.filterState[fieldName] = STATE.filterState[fieldName].filter(v => v !== value);
-      }
-      
-      updateMultiSelectText(fieldName);
-      applyFiltersAndRender();
-    }
-
-    function updateMultiSelectText(fieldName) {
-      const msId = {
-        'categoria': 'ms-categoria',
-        'tipo_vigencia': 'ms-vigencia'
-      }[fieldName];
-      
-      const selected = STATE.filterState[fieldName];
-      const textEl = document.querySelector(`#${msId} .ms-text`);
-      
-      if (selected.length === 0) {
-        textEl.textContent = fieldName === 'categoria' ? 'Todas' : 'Todos';
-      } else if (selected.length === 1) {
-        textEl.textContent = selected[0];
-      } else {
-        textEl.textContent = `${selected.length} seleccionados`;
-      }
-    }
-
-    function applyFiltersAndRender() {
-      let filtered = [...STATE.documents];
-      
-      // Search filter
-      if (STATE.filterState.search.trim() !== '') {
-        const searchLower = STATE.filterState.search.toLowerCase();
-        filtered = filtered.filter(doc => 
-          (doc.nombre || '').toLowerCase().includes(searchLower) ||
-          (doc.codigo || '').toLowerCase().includes(searchLower) ||
-          (doc.categoria || '').toLowerCase().includes(searchLower)
-        );
-      }
-      
-      // Categoria filter
-      if (STATE.filterState.categoria.length > 0) {
-        filtered = filtered.filter(doc => 
-          STATE.filterState.categoria.includes(doc.categoria)
-        );
-      }
-      
-      // Tipo vigencia filter
-      if (STATE.filterState.tipo_vigencia.length > 0) {
-        filtered = filtered.filter(doc => 
-          STATE.filterState.tipo_vigencia.includes(doc.tipo_vigencia)
-        );
-      }
-      
-      STATE.filteredDocuments = filtered;
-      STATE.currentPage = 1;
-      
-      renderTable();
-      updatePagination();
-      updateStatsSummary();
-    }
-
-    function clearAllFilters() {
-      STATE.filterState = {
-        search: '',
-        categoria: [],
-        tipo_vigencia: []
-      };
-      
-      document.getElementById('filter-search').value = '';
-      document.querySelectorAll('.ms-option input[type="checkbox"]').forEach(cb => {
-        cb.checked = false;
+      const catSelect = document.getElementById('filter-categoria');
+      categorias.forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat;
+        opt.textContent = cat;
+        catSelect.appendChild(opt);
       });
       
-      updateMultiSelectText('categoria');
-      updateMultiSelectText('tipo_vigencia');
-      applyFiltersAndRender();
+      const vigSelect = document.getElementById('filter-vigencia');
+      vigencias.forEach(vig => {
+        const opt = document.createElement('option');
+        opt.value = vig;
+        opt.textContent = vig;
+        vigSelect.appendChild(opt);
+      });
     }
-
-    // ========================================================================
-    // TABLE
-    // ========================================================================
+    
+    // Apply filters
+    function applyFilters() {
+      STATE.filteredDocuments = STATE.documents.filter(doc => {
+        if (STATE.filterSearch && !doc.nombre.toLowerCase().includes(STATE.filterSearch.toLowerCase())) {
+          return false;
+        }
+        if (STATE.filterCategoria && doc.categoria !== STATE.filterCategoria) {
+          return false;
+        }
+        if (STATE.filterVigencia && doc.tipo_vigencia !== STATE.filterVigencia) {
+          return false;
+        }
+        return true;
+      });
+      
+      STATE.currentPage = 1;
+      renderTable();
+    }
+    
+    // Render table
     function renderTable() {
       const tbody = document.getElementById('table-body');
-      const startIdx = (STATE.currentPage - 1) * STATE.rowsPerPage;
-      const endIdx = startIdx + STATE.rowsPerPage;
-      const pageData = STATE.filteredDocuments.slice(startIdx, endIdx);
+      const start = (STATE.currentPage - 1) * STATE.rowsPerPage;
+      const end = start + STATE.rowsPerPage;
+      const pageData = STATE.filteredDocuments.slice(start, end);
       
-      if (pageData.length === 0) {
-        tbody.innerHTML = `
-          <tr>
-            <td colspan="8" class="empty-state">No hay documentos que coincidan con los filtros</td>
-          </tr>
-        `;
-        return;
-      }
-      
-      tbody.innerHTML = pageData.map(doc => `
-        <tr onclick="openDocumentSidebar('${doc.id}')" class="table-row-clickable">
-          <td>${escapeHtml(doc.id)}</td>
-          <td><code class="code-badge">${escapeHtml(doc.codigo)}</code></td>
+      tbody.innerHTML = pageData.map((doc, idx) => `
+        <tr onclick="openSidebar(${doc.id})">
+          <td>${doc.id}</td>
           <td><strong>${escapeHtml(doc.nombre)}</strong></td>
-          <td><span class="badge badge-category">${escapeHtml(doc.categoria)}</span></td>
-          <td><span class="badge badge-vigencia-${doc.tipo_vigencia}">${escapeHtml(doc.tipo_vigencia)}</span></td>
+          <td><span class="badge badge-neutral">${escapeHtml(doc.categoria)}</span></td>
+          <td>${escapeHtml(doc.tipo_vigencia)}</td>
           <td>${escapeHtml(doc.vigencia_dias)}</td>
-          <td><span class="badge badge-neutral">${doc.campos.length}</span></td>
-          <td onclick="event.stopPropagation()">
-            <button class="btn btn-sm btn-outline" onclick="openDocumentSidebar('${doc.id}')">Ver</button>
-          </td>
+          <td><span class="badge badge-primary">${doc.campos.length}</span></td>
+          <td><button class="btn btn-sm btn-outline" onclick="event.stopPropagation(); openSidebar(${doc.id})">Ver</button></td>
         </tr>
       `).join('');
+      
+      updatePagination();
+      updateStats();
     }
-
+    
+    // Update pagination
     function updatePagination() {
       const totalPages = Math.ceil(STATE.filteredDocuments.length / STATE.rowsPerPage);
-      const startIdx = (STATE.currentPage - 1) * STATE.rowsPerPage + 1;
-      const endIdx = Math.min(startIdx + STATE.rowsPerPage - 1, STATE.filteredDocuments.length);
+      const start = (STATE.currentPage - 1) * STATE.rowsPerPage + 1;
+      const end = Math.min(start + STATE.rowsPerPage - 1, STATE.filteredDocuments.length);
       
-      document.getElementById('pagination-info').textContent = 
-        `Mostrando ${startIdx}-${endIdx} de ${STATE.filteredDocuments.length}`;
-      document.getElementById('page-indicator').textContent = 
-        `Página ${STATE.currentPage} de ${totalPages || 1}`;
-      
+      document.getElementById('pagination-info').textContent = `Mostrando ${start}-${end} de ${STATE.filteredDocuments.length}`;
+      document.getElementById('page-indicator').textContent = `Página ${STATE.currentPage} de ${totalPages}`;
       document.getElementById('btn-prev-page').disabled = STATE.currentPage === 1;
       document.getElementById('btn-next-page').disabled = STATE.currentPage >= totalPages;
     }
-
-    function updateStatsSummary() {
-      document.getElementById('stats-summary').textContent = 
-        `${STATE.filteredDocuments.length} documento(s)`;
-      document.getElementById('total-docs').textContent = 
-        `${STATE.documents.length} documentos`;
+    
+    // Update stats
+    function updateStats() {
+      document.getElementById('total-docs').textContent = `${STATE.filteredDocuments.length} documentos`;
+      document.getElementById('stats-summary').textContent = `Total: ${STATE.documents.length} | Mostrando: ${STATE.filteredDocuments.length}`;
     }
-
-    // ========================================================================
-    // SIDEBAR (READ-ONLY)
-    // ========================================================================
-    function openDocumentSidebar(documentId) {
-      STATE.selectedDocumentId = documentId;
-      const doc = STATE.documents.find(d => d.id === documentId);
+    
+    // Open sidebar
+    function openSidebar(id) {
+      const doc = STATE.documents.find(d => d.id === id);
       if (!doc) return;
       
+      STATE.selectedDocumentId = id;
+      document.getElementById('sidebar-title').textContent = doc.nombre;
       document.getElementById('sidebar').style.display = 'flex';
       document.getElementById('sidebar-overlay').style.display = 'block';
-      document.getElementById('sidebar-title').textContent = doc.nombre || 'Sin nombre';
       
-      switchTab('general');
+      renderSidebarTab('general', doc);
     }
-
+    
+    // Close sidebar
     function closeSidebar() {
       document.getElementById('sidebar').style.display = 'none';
       document.getElementById('sidebar-overlay').style.display = 'none';
     }
-
+    
+    // Switch sidebar tab
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.dataset.tab === tabId) btn.classList.add('active');
+        btn.classList.toggle('active', btn.dataset.tab === tabId);
       });
       
       const doc = STATE.documents.find(d => d.id === STATE.selectedDocumentId);
-      if (doc) renderTabContent(tabId, doc);
+      if (doc) renderSidebarTab(tabId, doc);
     }
-
-    function renderTabContent(tabId, doc) {
+    
+    // Render sidebar tab
+    function renderSidebarTab(tabId, doc) {
       const container = document.getElementById('sidebar-body');
       
       switch (tabId) {
         case 'general':
           container.innerHTML = `
             <div class="form-section">
-              <div class="form-group"><label class="form-label">ID</label><p>${escapeHtml(doc.id)}</p></div>
-              <div class="form-group"><label class="form-label">Código</label><p><code>${escapeHtml(doc.codigo)}</code></p></div>
-              <div class="form-group"><label class="form-label">Nombre</label><p><strong>${escapeHtml(doc.nombre)}</strong></p></div>
-              <div class="form-group"><label class="form-label">Categoría</label><p>${escapeHtml(doc.categoria)}</p></div>
-              <div class="form-group"><label class="form-label">Puede tener +1</label><p>${escapeHtml(doc.puede_tener_mas)}</p></div>
+              <div class="form-group">
+                <label class="form-label">ID</label>
+                <input type="text" class="input-text" value="${escapeHtml(doc.id)}" disabled>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Nombre del Documento</label>
+                <input type="text" class="input-text" value="${escapeHtml(doc.nombre)}" disabled>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Categoría</label>
+                <input type="text" class="input-text" value="${escapeHtml(doc.categoria)}" disabled>
+              </div>
+              <div class="form-group">
+                <label class="form-label">¿Puede tener más de 1?</label>
+                <input type="text" class="input-text" value="${escapeHtml(doc.puede_tener_mas)}" disabled>
+              </div>
             </div>
           `;
           break;
         case 'vigencia':
           container.innerHTML = `
             <div class="form-section">
-              <div class="form-group"><label class="form-label">Tipo</label><p>${escapeHtml(doc.tipo_vigencia)}</p></div>
-              <div class="form-group"><label class="form-label">Días</label><p>${escapeHtml(doc.vigencia_dias)}</p></div>
+              <div class="form-group">
+                <label class="form-label">Tipo de Vigencia</label>
+                <input type="text" class="input-text" value="${escapeHtml(doc.tipo_vigencia)}" disabled>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Vigencia Sugerida (días)</label>
+                <input type="text" class="input-text" value="${escapeHtml(doc.vigencia_dias)}" disabled>
+              </div>
             </div>
           `;
           break;
         case 'campos':
           const camposHTML = doc.campos.length > 0 
-            ? doc.campos.map((c, i) => `<tr><td>${i+1}</td><td>${escapeHtml(c.nombre)}</td></tr>`).join('')
-            : '<tr><td colspan="2" class="empty-state-small">Sin campos</td></tr>';
+            ? doc.campos.map((campo, idx) => `
+                <tr>
+                  <td>${idx + 1}</td>
+                  <td>${escapeHtml(campo.nombre)}</td>
+                </tr>
+              `).join('')
+            : '<tr><td colspan="2" style="text-align:center;padding:20px;color:#999;">No hay campos definidos</td></tr>';
+          
           container.innerHTML = `
             <div class="form-section">
               <table class="mini-table">
-                <thead><tr><th>#</th><th>Campo</th></tr></thead>
+                <thead>
+                  <tr>
+                    <th style="width: 50px;">#</th>
+                    <th>Nombre del Campo</th>
+                  </tr>
+                </thead>
                 <tbody>${camposHTML}</tbody>
               </table>
             </div>
@@ -1597,46 +1563,62 @@ h3 { font-size: 16px; }
         case 'notas':
           container.innerHTML = `
             <div class="form-section">
-              <div class="form-group"><label class="form-label">Comentario</label><p>${escapeHtml(doc.comentario) || '<em>Sin comentarios</em>'}</p></div>
+              <div class="form-group">
+                <label class="form-label">Comentarios y Notas</label>
+                <textarea class="input-textarea" rows="10" disabled>${escapeHtml(doc.comentario)}</textarea>
+              </div>
             </div>
           `;
           break;
       }
     }
-
-    // ========================================================================
-    // INIT
-    // ========================================================================
-    document.addEventListener('DOMContentLoaded', () => {
-      buildMultiSelectOptions('ms-categoria', 'categoria');
-      buildMultiSelectOptions('ms-vigencia', 'tipo_vigencia');
-      
+    
+    // Attach event listeners
+    function attachEventListeners() {
       document.getElementById('filter-search').addEventListener('input', e => {
-        STATE.filterState.search = e.target.value;
-        applyFiltersAndRender();
+        STATE.filterSearch = e.target.value;
+        applyFilters();
       });
       
-      document.getElementById('btn-clear-filters').addEventListener('click', clearAllFilters);
+      document.getElementById('filter-categoria').addEventListener('change', e => {
+        STATE.filterCategoria = e.target.value;
+        applyFilters();
+      });
+      
+      document.getElementById('filter-vigencia').addEventListener('change', e => {
+        STATE.filterVigencia = e.target.value;
+        applyFilters();
+      });
+      
+      document.getElementById('btn-clear-filters').addEventListener('click', () => {
+        STATE.filterSearch = '';
+        STATE.filterCategoria = '';
+        STATE.filterVigencia = '';
+        document.getElementById('filter-search').value = '';
+        document.getElementById('filter-categoria').value = '';
+        document.getElementById('filter-vigencia').value = '';
+        applyFilters();
+      });
+      
+      document.getElementById('rows-per-page').addEventListener('change', e => {
+        STATE.rowsPerPage = parseInt(e.target.value);
+        STATE.currentPage = 1;
+        renderTable();
+      });
+      
       document.getElementById('btn-prev-page').addEventListener('click', () => {
         if (STATE.currentPage > 1) {
           STATE.currentPage--;
           renderTable();
-          updatePagination();
         }
       });
+      
       document.getElementById('btn-next-page').addEventListener('click', () => {
         const totalPages = Math.ceil(STATE.filteredDocuments.length / STATE.rowsPerPage);
         if (STATE.currentPage < totalPages) {
           STATE.currentPage++;
           renderTable();
-          updatePagination();
         }
-      });
-      document.getElementById('rows-per-page').addEventListener('change', e => {
-        STATE.rowsPerPage = parseInt(e.target.value);
-        STATE.currentPage = 1;
-        renderTable();
-        updatePagination();
       });
       
       document.getElementById('btn-close-sidebar').addEventListener('click', closeSidebar);
@@ -1645,26 +1627,17 @@ h3 { font-size: 16px; }
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => switchTab(btn.dataset.tab));
       });
-      
-      // Multi-select dropdowns
-      document.querySelectorAll('.multi-select').forEach(ms => {
-        const trigger = ms.querySelector('.ms-trigger');
-        const dropdown = ms.querySelector('.ms-dropdown');
-        trigger.addEventListener('click', e => {
-          e.stopPropagation();
-          document.querySelectorAll('.ms-dropdown').forEach(d => {
-            if (d !== dropdown) d.style.display = 'none';
-          });
-          dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
-        });
-      });
-      
-      document.addEventListener('click', () => {
-        document.querySelectorAll('.ms-dropdown').forEach(d => d.style.display = 'none');
-      });
-      
-      applyFiltersAndRender();
-    });
+    }
+    
+    // Escape HTML
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text || '';
+      return div.innerHTML;
+    }
+    
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
 </html>
