@@ -22,7 +22,7 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 REM Generate HTML page
-echo [1/4] Generando pagina publica...
+echo [1/5] Generando pagina publica...
 python generate_page.py
 if %ERRORLEVEL% NEQ 0 (
     echo [ERROR] No se pudo generar la pagina
@@ -32,7 +32,18 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 echo.
-echo [2/4] Verificando repositorio Git...
+echo [2/5] Actualizando index.html publico...
+copy /Y documentos_page.html index.html >nul
+if %ERRORLEVEL% NEQ 0 (
+    echo [ERROR] No se pudo copiar a index.html
+    echo.
+    pause
+    exit /b 1
+)
+echo index.html actualizado correctamente
+
+echo.
+echo [3/5] Verificando repositorio Git...
 git status >nul 2>nul
 if %ERRORLEVEL% NEQ 0 (
     echo [WARNING] Este directorio no es un repositorio Git
@@ -50,12 +61,12 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 echo.
-echo [3/4] Agregando cambios a Git...
-git add documentos_page.html
+echo [4/5] Agregando cambios a Git...
+git add documentos_page.html index.html
 git status --short
 
 echo.
-echo [4/4] Haciendo commit...
+echo [5/5] Haciendo commit...
 git commit -m "Update public page - %date% %time%"
 
 echo.
@@ -77,7 +88,7 @@ if %ERRORLEVEL% EQU 1 (
         echo [SUCCESS] Publicado en GitHub Pages!
         echo.
         echo Tu pagina estara disponible en:
-        echo https://colca-spa.github.io/colca-datos/documentos_page.html
+        echo https://colca-spa.github.io/colca-datos/
         echo.
     ) else (
         echo.

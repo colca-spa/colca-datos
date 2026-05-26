@@ -1,14 +1,20 @@
-# Registros COLCA - Editor de Documentos
+# Registros COLCA - Base de Datos de Documentos
 
-Aplicación web local para gestionar la base de datos de documentos en formato CSV.
+Sistema de gestión de documentos con editor local y página pública.
+
+## 🌐 Páginas
+
+- **`index.html`**: Página pública de solo lectura (GitHub Pages) con 106 documentos embebidos
+- **`editor.html`**: Editor completo para uso local (requiere cargar CSV)
+- **`documentos_page.html`**: Versión generada que se copia a index.html
 
 ## 🚀 Inicio Rápido
 
 ### Modo Edición Local
 
-1. **Abrir la aplicación:**
-   - Haz doble clic en `index.html`
-   - O arrastra el archivo al navegador (Chrome/Edge recomendado)
+1. **Abrir el editor:**
+   - Abre `editor.html` en Chrome/Edge
+   - O accede localmente al archivo
 
 2. **Cargar datos:**
    - Click en **"Cargar CSV"**
@@ -42,12 +48,20 @@ Aplicación web local para gestionar la base de datos de documentos en formato C
    ```powershell
    python generate_page.py
    ```
-   Esto crea `documentos_page.html` (standalone, sin dependencias)
+   Esto crea `documentos_page.html` con datos embebidos
 
-2. **Publicar automáticamente:**
+2. **Actualizar index.html público:**
+   ```powershell
+   Copy-Item documentos_page.html index.html
+   ```
+
+3. **Publicar automáticamente:**
    ```powershell
    .\publish.bat
    ```
+   
+**URL pública:** `https://colca-spa.github.io/colca-datos/`  
+(Muestra index.html con 106 documentos embebidos, sin necesidad de cargar CSV)
    - Genera el HTML
    - Hace commit a Git
    - Pregunta si quieres hacer push
