@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registros COLCA - Editor de Documentos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <h1>📁 Registros COLCA</h1>
+      <div class="header-actions">
+        <button id="btn-load-csv" class="btn btn-primary">
+          📂 Cargar CSV
+        </button>
+        <button id="btn-save-csv" class="btn btn-success" disabled>
+          💾 Guardar
+        </button>
+        <button id="btn-save-as" class="btn btn-outline" disabled>
+          📥 Guardar como...
+        </button>
+        <span id="unsaved-indicator" class="badge badge-warning" style="display: none;">
+          Sin guardar
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <button id="btn-new-doc" class="btn btn-primary" disabled>
+          ➕ Nuevo Documento
+        </button>
+        <button id="btn-generate-page" class="btn btn-outline" disabled>
+          📤 Generar Página Pública
+        </button>
+      </div>
+      <div class="toolbar-right">
+        <span id="stats-summary"></span>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters-panel">
+      <div class="filter-group">
+        <label>🔍 Buscar</label>
+        <input 
+          type="text" 
+          id="filter-search" 
+          class="input-text" 
+          placeholder="Buscar por nombre..."
+          disabled>
+      </div>
+
+      <div class="filter-group">
+        <label>Categoría</label>
+        <div class="multi-select" id="ms-categoria">
+          <div class="ms-trigger">
+            <span class="ms-text">Todas</span>
+            <span class="ms-arrow">▼</span>
+          </div>
+          <div class="ms-dropdown" style="display:none">
+            <div class="ms-options" id="ms-categoria-opts"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label>Tipo de Vigencia</label>
+        <div class="multi-select" id="ms-vigencia">
+          <div class="ms-trigger">
+            <span class="ms-text">Todos</span>
+            <span class="ms-arrow">▼</span>
+          </div>
+          <div class="ms-dropdown" style="display:none">
+            <div class="ms-options" id="ms-vigencia-opts"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label>Puede tener +1</label>
+        <div class="multi-select" id="ms-multiple">
+          <div class="ms-trigger">
+            <span class="ms-text">Todos</span>
+            <span class="ms-arrow">▼</span>
+          </div>
+          <div class="ms-dropdown" style="display:none">
+            <div class="ms-options" id="ms-multiple-opts"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <button id="btn-clear-filters" class="btn btn-sm btn-outline" disabled>
+          ✕ Limpiar filtros
+        </button>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="table-container">
+      <table class="data-table" id="main-table">
+        <thead>
+          <tr>
+            <th data-sort="id" onclick="sortDocuments('id')" class="sortable">ID</th>
+            <th data-sort="codigo" onclick="sortDocuments('codigo')" class="sortable">Código</th>
+            <th data-sort="nombre" onclick="sortDocuments('nombre')" class="sortable">Nombre del Documento</th>
+            <th data-sort="categoria" onclick="sortDocuments('categoria')" class="sortable">Categoría</th>
+            <th data-sort="tipo_vigencia" onclick="sortDocuments('tipo_vigencia')" class="sortable">Tipo de Vigencia</th>
+            <th data-sort="vigencia_dias" onclick="sortDocuments('vigencia_dias')" class="sortable">Vigencia (días)</th>
+            <th data-sort="campos_count" onclick="sortDocuments('campos_count')" class="sortable"># Campos</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr>
+            <td colspan="8" class="empty-state">
+              Carga un archivo CSV para comenzar
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-bar">
+      <div class="pagination-info">
+        <span id="pagination-info">Mostrando 0 de 0</span>
+      </div>
+      <div class="pagination-controls">
+        <label>Filas por página:</label>
+        <select id="rows-per-page" class="select-sm" disabled>
+          <option value="10">10</option>
+          <option value="20" selected>20</option>
+          <option value="50">50</option>
+          <option value="999999">Todas</option>
+        </select>
+      </div>
+      <div class="pagination-buttons">
+        <button id="btn-prev-page" class="btn btn-sm" disabled>‹ Anterior</button>
+        <span id="page-indicator">Página 1 de 1</span>
+        <button id="btn-next-page" class="btn btn-sm" disabled>Siguiente ›</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar" style="display: none;">
+    <div class="sidebar-header">
+      <h2 id="sidebar-title">Detalle del Documento</h2>
+      <button id="btn-close-sidebar" class="btn-icon">✕</button>
+    </div>
+
+    <div class="sidebar-tabs">
+      <button class="tab-btn active" data-tab="general">Información General</button>
+      <button class="tab-btn" data-tab="vigencia">Vigencia</button>
+      <button class="tab-btn" data-tab="campos">Campos</button>
+      <button class="tab-btn" data-tab="notas">Notas</button>
+    </div>
+
+    <div class="sidebar-body" id="sidebar-body">
+      <!-- Content will be injected by sidebar.js -->
+    </div>
+
+    <div class="sidebar-footer">
+      <button id="btn-save-doc" class="btn btn-success" onclick="saveDocumentChanges()">💾 Guardar Cambios</button>
+      <button id="btn-delete-doc" class="btn btn-danger">🗑️ Eliminar</button>
+      <button id="btn-duplicate-doc" class="btn btn-outline">📋 Duplicar</button>
+    </div>
+  </div>
+
+  <!-- Overlay for sidebar -->
+  <div class="sidebar-overlay" id="sidebar-overlay" style="display: none;"></div>
+
+  <!-- Scripts -->
+  <script src="embedded_css.js"></script>
+  <script src="app.js"></script>
+  <script src="sidebar.js"></script>
+</body>
+</html>
