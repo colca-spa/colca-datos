@@ -5,6 +5,9 @@ Sistema de gestión de documentos con editor local y página pública.
 ## 🌐 Páginas
 
 - **`index.html`**: Página pública de solo lectura (GitHub Pages) con 106 documentos embebidos
+  - Filtros y búsqueda interactiva
+  - Ordenamiento por columnas
+  - **Descarga CSV**: Botón para exportar todos los datos
 - **`editor.html`**: Editor completo para uso local (requiere cargar CSV)
 - **`documentos_page.html`**: Versión generada que se copia a index.html
 

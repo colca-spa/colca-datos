@@ -136,6 +136,11 @@ git push origin main
 2. Visita: **https://colca-spa.github.io/colca-datos/**
 3. ✅ ¡Tus cambios están en línea!
 
+**💡 Funcionalidad adicional en la página pública:**
+- Los usuarios pueden hacer click en **📥 Descargar CSV** para exportar todos los datos
+- El CSV descargado tiene el mismo formato que `Documentos.csv`
+- Útil para análisis offline, backups o compartir con otros sistemas
+
 ---
 
 ## ⚠️ Precauciones
