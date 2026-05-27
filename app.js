@@ -831,6 +831,9 @@ ${cssContent}
         <strong>Base de Datos de Documentos (Solo Lectura)</strong>
       </div>
       <div class="toolbar-right">
+        <button id="btn-download-csv" class="btn btn-sm btn-outline" style="margin-right: 10px;">
+          📥 Descargar CSV
+        </button>
         <span id="stats-summary"></span>
       </div>
     </div>
@@ -1182,6 +1185,60 @@ ${cssContent}
       }
     }
     
+    // Download CSV
+    function downloadCSV() {
+      // Convert documents to flat CSV structure
+      const rows = [];
+      
+      // Header
+      rows.push(['ID', 'Código', 'Nombre del Documento', 'Puede tener + de 1', 'Categoría', 'Tipo de vigencia', 'Vigencia sugerida (días)', 'campos documento', 'nombre campos', 'Comentario'].join(';'));
+      
+      // Data rows
+      STATE.documents.forEach(doc => {
+        // Document row
+        rows.push([
+          doc.id,
+          doc.codigo || '',
+          doc.nombre,
+          doc.puede_tener_mas || '',
+          doc.categoria || '',
+          doc.tipo_vigencia || '',
+          doc.vigencia_dias || '',
+          '',
+          '',
+          doc.comentario || ''
+        ].join(';'));
+        
+        // Campo rows
+        doc.campos.forEach(campo => {
+          rows.push([
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            campo.nombre || '',
+            '',
+            ''
+          ].join(';'));
+        });
+      });
+      
+      // Create blob and download
+      const csvContent = rows.join('\\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Documentos_COLCA.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+    
     // Attach event listeners
     function attachEventListeners() {
       document.getElementById('filter-search').addEventListener('input', e => {
@@ -1208,6 +1265,8 @@ ${cssContent}
         document.getElementById('filter-vigencia').value = '';
         applyFilters();
       });
+      
+      document.getElementById('btn-download-csv').addEventListener('click', downloadCSV);
       
       document.getElementById('rows-per-page').addEventListener('change', e => {
         STATE.rowsPerPage = parseInt(e.target.value);
